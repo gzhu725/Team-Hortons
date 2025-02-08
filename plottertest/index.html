@@ -143,6 +143,7 @@ let incomingBuffer = '';
 function handleNotification(event) {
   // Convert the incoming DataView to a string
   const chunk = new TextDecoder().decode(event.target.value);
+  //console.log(chunk);
   // Append the new chunk to the global buffer
   incomingBuffer += chunk;
 
