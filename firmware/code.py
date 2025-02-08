@@ -107,7 +107,7 @@ while True:
 
         a = {'smooth_ax': smooth_ax, 'smooth_ay': smooth_ay, 'smooth_az': smooth_az, 
              'jerk_x': jerk_x, 'jerk_y': jerk_y, 'jerk_z': jerk_z, 'smooth_accel': smooth_accel, 
-             'smooth_jerk': smooth_jerk}
+             'smooth_jerk': smooth_jerk, 'time': time.time()}
         
         
         a = json.dumps(a)
