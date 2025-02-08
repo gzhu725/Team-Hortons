@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Bluetooth Serial Graph</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    #connect {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 20px;
+      cursor: pointer;
+    }
+    canvas {
+      background: #fff;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bluetooth Serial Graph</h1>
+  <button id="connect">Connect Bluetooth Device</button>
+  <br>
+  <canvas id="graph" width="600" height="300"></canvas>
+
+  <script>
+    // ======== GRAPH DRAWING CODE ========
+    const canvas = document.getElementById('graph');
+    const ctx = canvas.getContext('2d');
+    // We'll use one horizontal pixel per data point.
+    const maxPoints = canvas.width;
+    const dataPoints = []; // holds incoming values
+
+    function addDataPoint(val) {
+      dataPoints.push(val);
+      if (dataPoints.length > maxPoints) {
+        dataPoints.shift(); // remove oldest point when over capacity
+      }
+      drawGraph();
+    }
+
+    function drawGraph() {
+      // Clear the canvas.
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw light grid lines (optional)
+      ctx.strokeStyle = '#eee';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (let y = 0; y <= canvas.height; y += 50) {
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+      }
+      ctx.stroke();
+
+      if (dataPoints.length < 2) return;
+
+      // Compute min and max to scale the graph.
+      let min = Math.min(...dataPoints);
+      let max = Math.max(...dataPoints);
+      // Avoid zero range.
+      if (min === max) { min -= 1; max += 1; }
+
+      // Draw the data as a line.
+      ctx.strokeStyle = '#007bff';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      const xStep = canvas.width / (maxPoints - 1);
+      for (let i = 0; i < dataPoints.length; i++) {
+        const x = i * xStep;
+        // In canvas, y=0 is top. Scale so higher values are lower on the canvas.
+        const y = canvas.height - ((dataPoints[i] - min) / (max - min)) * canvas.height;
+        if (i === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+      ctx.stroke();
+    }
+
+    // ======== BLUETOOTH CODE ========
+    let bluetoothDevice;
+    let characteristic;
+
+    // When the user clicks the button, start the Bluetooth connection process.
+    document.getElementById('connect').addEventListener('click', connectBluetooth);
+
+    function connectBluetooth() {
+      // Example uses the Nordic UART Service (NUS).
+      // Change the service/characteristic UUIDs as required for your device.
+      const NUS_SERVICE_UUID           = '6e400001-b5a3-f393-e0a9-e50e24dcca9e';
+      const NUS_CHARACTERISTIC_UUID    = '6e400003-b5a3-f393-e0a9-e50e24dcca9e'; // TX characteristic
+
+      if (!navigator.bluetooth) {
+        alert('Web Bluetooth is not supported in this browser.');
+        return;
+      }
+
+      navigator.bluetooth.requestDevice({
+        filters: [{ services: [NUS_SERVICE_UUID] }]
+      })
+      .then(device => {
+        bluetoothDevice = device;
+        console.log('Connecting to GATT Server...');
+        return device.gatt.connect();
+      })
+      .then(server => {
+        console.log('Getting Primary Service...');
+        return server.getPrimaryService(NUS_SERVICE_UUID);
+      })
+      .then(service => {
+        console.log('Getting Characteristic...');
+        return service.getCharacteristic(NUS_CHARACTERISTIC_UUID);
+      })
+      .then(char => {
+        characteristic = char;
+        console.log('Starting Notifications...');
+        return characteristic.startNotifications();
+      })
+      .then(() => {
+        characteristic.addEventListener('characteristicvaluechanged', handleNotification);
+        console.log('Notifications started. Listening for data...');
+      })
+      .catch(error => {
+        console.error('Bluetooth Error: ', error);
+      });
+    }
+
+    // This handler is called whenever new data is received.
+    function handleNotification(event) {
+      const value = event.target.value;
+      // Assume the device sends text (UTF-8 encoded) representing a number.
+      const decoder = new TextDecoder('utf-8');
+      const dataStr = decoder.decode(value).trim();
+      // You might receive multiple lines or non-numeric text; split and parse:
+      dataStr.split('\n').forEach(line => {
+        const num = parseFloat(line);
+        if (!isNaN(num)) {
+          console.log('Received:', num);
+          addDataPoint(num);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
