@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Web Bluetooth Serial Graph</title>
+  <title>Tulip Track</title>
   <style>
     body {
       font-family: sans-serif;
-      background: #f0f0f0;
+      background: #fedeef;
       text-align: center;
       margin: 0;
       padding: 20px;
@@ -22,14 +22,14 @@
     }
     canvas {
       background: #fff;
-      border: 1px solid #ccc;
+      border: 10px solid #e1ffd9;
       margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Bluetooth Serial Graph</h1>
-  <button id="connect">Connect Bluetooth Device</button>
+  <h1>TulipTrack</h1>
+  <button id="connect">Connect Your Tulip Tracker</button>
   <br>
   <canvas id="graph" width="600" height="300"></canvas>
 
@@ -145,6 +145,7 @@
       const dataStr = decoder.decode(value).trim();
       // You might receive multiple lines or non-numeric text; split and parse:
       dataStr.split('\n').forEach(line => {
+        console.log(line);
         const num = parseFloat(line);
         if (!isNaN(num)) {
           console.log('Received:', num);

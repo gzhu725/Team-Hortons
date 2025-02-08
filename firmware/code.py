@@ -5,6 +5,11 @@ import busio
 from adafruit_lsm6ds.lsm6ds3 import LSM6DS3
 import digitalio
 
+from adafruit_ble import BLERadio
+from adafruit_ble.advertising.standard import ProvideServicesAdvertisement
+from adafruit_ble.services.nordic import UARTService
+
+import json
 
 # ------------------------------
 # USER-CONFIGURABLE VARIABLES
@@ -38,6 +43,17 @@ print("I2c initialized")
 # Initialize the LSM6DS3 sensor using the Adafruit CircuitPython LSM6DS library
 sensor = LSM6DS3(i2c)
 
+
+# Initialize BLE radio and create a UART service.
+ble = BLERadio()
+uart = UARTService()
+advertisement = ProvideServicesAdvertisement(uart)
+
+# Start advertising so a BLE central (e.g., smartphone) can connect.
+ble.start_advertising(advertisement)
+print("Advertising BLE UART service...")
+
+
 # Initialize smoothed acceleration values (for X, Y, and Z)
 smooth_ax = 0.0
 smooth_ay = 0.0
@@ -61,7 +77,6 @@ above_threshold_start_time = 0.0
 while True:
     # Read current (raw) acceleration in m/s^2
     ax, ay, az = sensor.acceleration
-    az -= 9.8
 
     # Get current time and calculate the time difference (dt)
     current_time = time.monotonic()
@@ -72,26 +87,64 @@ while True:
     smooth_ay = ALPHA * ay + (1 - ALPHA) * smooth_ay
     smooth_az = ALPHA * az + (1 - ALPHA) * smooth_az
 
+    smooth_accel = (smooth_ax ** 2 + smooth_ay ** 2 + smooth_az ** 2) ** 0.5 - 10
+
     # Compute jerk (rate of change of smoothed acceleration) if dt is valid
     if dt > 0:
         jerk_x = (smooth_ax - prev_smooth_ax) / dt
         jerk_y = (smooth_ay - prev_smooth_ay) / dt
         jerk_z = (smooth_az - prev_smooth_az) / dt
 
+        smooth_jerk = (jerk_x ** 2 + jerk_y ** 2 + jerk_z ** 2) ** 0.5
+
         # Print smoothed acceleration and computed jerk
     
     #    print("Smoothed Accel (m/s^2): x={:.3f}, y={:.3f}, z={:.3f}".format(smooth_ax, smooth_ay, smooth_az))
     #   print("Jerk (m/s^3):           x={:.3f}, y={:.3f}, z={:.3f}".format(jerk_x, jerk_y, jerk_z))
-        print("X_Accel:", end ='')
-        print(smooth_ax, end= '')
 
-        print(",Y_Accel:", end='')
-        print(smooth_ay, end='')
 
-        print(",Z_Accel:", end='')
-        print(smooth_az, end='')
+        #all variables visualized with Arduino IDE serial plotter    
 
-        print(",dt:{:.3f}".format(dt))
+        a = {'smooth_ax': smooth_ax, 'smooth_ay': smooth_ay, 'smooth_az': smooth_az, 
+             'jerk_x': jerk_x, 'jerk_y': jerk_y, 'jerk_z': jerk_z, 'smooth_accel': smooth_accel, 
+             'smooth_jerk': smooth_jerk}
+        
+        
+        a = json.dumps(a)
+        
+        message = "X_Accel:"
+        message += str(smooth_ax)
+
+        message += ",Y_Accel:"
+        message += str(smooth_ay)
+
+        message += ",Z_Accel:"
+        message += str(smooth_az)
+
+        message += ",X_Jerk:"
+        message += str(jerk_x)
+
+        message += ",Y_Jerk:"
+        message += str(jerk_y)
+
+        message += ",Z_Jerk:"
+        message += str(jerk_z)
+
+
+        message += ",accel:"
+        message += str(smooth_accel)
+
+        message += ",jerk:"
+        message += str(smooth_jerk)
+
+
+        message += ",dt:{:.3f}".format(dt)
+
+        if ble.connected:
+            uart.write(a.encode("utf-8"))
+
+        print(message)
+
         #print("-" * 40)
 
         # Update previous smoothed acceleration and time for next iteration
