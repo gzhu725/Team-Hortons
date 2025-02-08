@@ -1,7 +1,10 @@
-import time
+print ("YO")
 import board
+import time
 import busio
-import adafruit_lsm6ds
+from adafruit_lsm6ds.lsm6ds3 import LSM6DS3
+import digitalio
+
 
 # ------------------------------
 # USER-CONFIGURABLE VARIABLES
@@ -24,12 +27,16 @@ LOOP_DELAY = 0.1
 # ------------------------------
 # SETUP
 # ------------------------------
-
+dpwr = digitalio.DigitalInOut(board.IMU_PWR)
+dpwr.direction = digitalio.Direction.OUTPUT
+dpwr.value = 1
+time.sleep(.1)
 # Create I2C interface
-i2c = busio.I2C(board.SCL, board.SDA)
-
+print(board.IMU_SCL, board.IMU_SDA)
+i2c = busio.I2C(board.IMU_SCL, board.IMU_SDA)
+print("I2c initialized")
 # Initialize the LSM6DS3 sensor using the Adafruit CircuitPython LSM6DS library
-sensor = adafruit_lsm6ds.LSM6DS3(i2c)
+sensor = LSM6DS3(i2c)
 
 # Initialize smoothed acceleration values (for X, Y, and Z)
 smooth_ax = 0.0
@@ -54,6 +61,7 @@ above_threshold_start_time = 0.0
 while True:
     # Read current (raw) acceleration in m/s^2
     ax, ay, az = sensor.acceleration
+    az -= 9.8
 
     # Get current time and calculate the time difference (dt)
     current_time = time.monotonic()
