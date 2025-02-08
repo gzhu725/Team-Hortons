@@ -82,17 +82,17 @@ while True:
     
     #    print("Smoothed Accel (m/s^2): x={:.3f}, y={:.3f}, z={:.3f}".format(smooth_ax, smooth_ay, smooth_az))
     #   print("Jerk (m/s^3):           x={:.3f}, y={:.3f}, z={:.3f}".format(jerk_x, jerk_y, jerk_z))
-        print("X_Accel: ")
-        print(smooth_ax)
+        print("X_Accel:", end ='')
+        print(smooth_ax, end= '')
 
-        print("Y_Accel: ")
-        print(smooth_ay)
+        print(",Y_Accel:", end='')
+        print(smooth_ay, end='')
 
-        print("Z_Accel :")
-        print(smooth_az)
+        print(",Z_Accel:", end='')
+        print(smooth_az, end='')
 
-        print("dt:                     {:.3f} s".format(dt))
-        print("-" * 40)
+        print(",dt:{:.3f}".format(dt))
+        #print("-" * 40)
 
         # Update previous smoothed acceleration and time for next iteration
         prev_smooth_ax = smooth_ax
@@ -113,9 +113,10 @@ while True:
             # Already above threshold; check how long it has been above
             elapsed_above = current_time - above_threshold_start_time
             if elapsed_above >= TIME_THRESHOLD:
-                print("Acceleration has been above {:.1f} m/s^2 for at least {:.1f} seconds!".format(
-                    ACCEL_THRESHOLD, TIME_THRESHOLD
-                ))
+                pass
+                #print("Acceleration has been above {:.1f} m/s^2 for at least {:.1f} seconds!".format(
+                #    ACCEL_THRESHOLD, TIME_THRESHOLD
+                #))
     else:
         # Reset the threshold timing if the magnitude drops below the threshold
         above_threshold = False
