@@ -9,7 +9,10 @@ const Home = () => {
           <Typography variant="h6">My MUI React Page</Typography>
         </Toolbar>
       </AppBar>
-      <Container maxWidth="md" style={{ textAlign: "center", marginTop: "2rem" }}>
+      <Container
+        maxWidth="md"
+        style={{ textAlign: "center", marginTop: "2rem" }}
+      >
         <Typography variant="h4" gutterBottom>
           Welcome to My Page
         </Typography>
