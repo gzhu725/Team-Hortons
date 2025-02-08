@@ -97,17 +97,38 @@ while True:
 
         smooth_jerk = (jerk_x ** 2 + jerk_y ** 2 + jerk_z ** 2) ** 0.5
 
+
         # Print smoothed acceleration and computed jerk
     
     #    print("Smoothed Accel (m/s^2): x={:.3f}, y={:.3f}, z={:.3f}".format(smooth_ax, smooth_ay, smooth_az))
     #   print("Jerk (m/s^3):           x={:.3f}, y={:.3f}, z={:.3f}".format(jerk_x, jerk_y, jerk_z))
 
 
+
+    status = 0
+
+    # Check if the magnitude is above the defined threshold
+    if smooth_accel > ACCEL_THRESHOLD:
+        if not above_threshold:
+            # Just crossed the threshold: start the timer
+            above_threshold = True
+            above_threshold_start_time = current_time
+            status = 0
+        else:
+            # Already above threshold; check how long it has been above
+            elapsed_above = current_time - above_threshold_start_time
+            if elapsed_above >= TIME_THRESHOLD:
+                pass
+                status = 1
+    else:
+        # Reset the threshold timing if the magnitude drops below the threshold
+        above_threshold = False
+
         #all variables visualized with Arduino IDE serial plotter    
 
         a = {'smooth_ax': smooth_ax, 'smooth_ay': smooth_ay, 'smooth_az': smooth_az, 
              'jerk_x': jerk_x, 'jerk_y': jerk_y, 'jerk_z': jerk_z, 'smooth_accel': smooth_accel, 
-             'smooth_jerk': smooth_jerk, 'time': time.time()}
+             'smooth_jerk': smooth_jerk, 'time': time.time(), 'status': status}
         
         
         a = json.dumps(a)
@@ -153,26 +174,6 @@ while True:
         prev_smooth_az = smooth_az
         prev_time = current_time
 
-    # Compute the magnitude of the smoothed acceleration vector
-    accel_mag = (smooth_ax**2 + smooth_ay**2 + smooth_az**2) ** 0.5
-
-    # Check if the magnitude is above the defined threshold
-    if accel_mag > ACCEL_THRESHOLD:
-        if not above_threshold:
-            # Just crossed the threshold: start the timer
-            above_threshold = True
-            above_threshold_start_time = current_time
-        else:
-            # Already above threshold; check how long it has been above
-            elapsed_above = current_time - above_threshold_start_time
-            if elapsed_above >= TIME_THRESHOLD:
-                pass
-                #print("Acceleration has been above {:.1f} m/s^2 for at least {:.1f} seconds!".format(
-                #    ACCEL_THRESHOLD, TIME_THRESHOLD
-                #))
-    else:
-        # Reset the threshold timing if the magnitude drops below the threshold
-        above_threshold = False
 
     # Delay for the next reading (adjusts sampling rate)
     time.sleep(LOOP_DELAY)
