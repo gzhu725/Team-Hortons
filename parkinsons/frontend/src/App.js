@@ -3,6 +3,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/index.js";
+import DoctorPage from "./pages/doctor.js"
 import { CssBaseline } from "@mui/material"; // Import CssBaseline
 
 const theme = createTheme({
@@ -42,6 +43,7 @@ function App() {
       <CssBaseline /> {/* Apply global styles */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/doctor" element={<DoctorPage />} />
       </Routes>
     </ThemeProvider>
   );

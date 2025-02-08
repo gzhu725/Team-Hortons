@@ -15,7 +15,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 import Logo from "../logo.png";
 
-const pages = ["Patient Data", "Calendar"];
+const pages = ["Patient Data", "Doctor"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
