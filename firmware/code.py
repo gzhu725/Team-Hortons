@@ -79,8 +79,18 @@ while True:
         jerk_z = (smooth_az - prev_smooth_az) / dt
 
         # Print smoothed acceleration and computed jerk
-        print("Smoothed Accel (m/s^2): x={:.3f}, y={:.3f}, z={:.3f}".format(smooth_ax, smooth_ay, smooth_az))
-        print("Jerk (m/s^3):           x={:.3f}, y={:.3f}, z={:.3f}".format(jerk_x, jerk_y, jerk_z))
+    
+    #    print("Smoothed Accel (m/s^2): x={:.3f}, y={:.3f}, z={:.3f}".format(smooth_ax, smooth_ay, smooth_az))
+    #   print("Jerk (m/s^3):           x={:.3f}, y={:.3f}, z={:.3f}".format(jerk_x, jerk_y, jerk_z))
+        print("X_Accel: ")
+        print(smooth_ax)
+
+        print("Y_Accel: ")
+        print(smooth_ay)
+
+        print("Z_Accel :")
+        print(smooth_az)
+
         print("dt:                     {:.3f} s".format(dt))
         print("-" * 40)
 
