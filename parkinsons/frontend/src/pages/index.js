@@ -3,10 +3,13 @@ import { Container, AppBar, Box } from "@mui/material";
 import Navbar from "../components/Navbar";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { useAuth } from "../context/AuthContext";
 
 const Home = () => {
   const [date, setDate] = useState(new Date());
-
+  const { isLoggedIn, setIsLoggedIn, login, logout, isPatient, setIsPatient, user, setUser } =
+  useAuth();
+  
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };

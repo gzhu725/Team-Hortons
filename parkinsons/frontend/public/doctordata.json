@@ -1,8 +1,8 @@
 [
   {
     "user_id": "ABCDE",
-    "email": "josephdee@gmail.com",
-    "password": "joseph%",
+    "email": "joseph@gmail.com",
+    "password": "joseph",
     "firstName": "Joseph",
     "lastName": "Dee",
     "patients": [

@@ -13,15 +13,12 @@ const PatientBar = ({ firstName, lastName, isOk, onClick }) => {
       onClick={onClick}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        {/* Icon with reduced space from the name */}
         <AccountCircleIcon sx={{ marginRight: "-400px" }} color="primary" />
 
-        {/* Patient name with reduced space */}
         <Typography variant="h6" sx={{ flexGrow: 1, marginRight: "8px" }}>
           {lastName}, {firstName}
         </Typography>
 
-        {/* Status indicator */}
         {isOk ? (
           <CheckCircleIcon color="success" />
         ) : (
