@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Chart from "react-apexcharts";
@@ -33,7 +35,7 @@ const TremorChart = () => {
       },
       yaxis: {
         title: {
-          text: "PC1 FFT Energy",
+          text: "PC1 FFT Energy for patient 1",
         },
       },
       title: {
@@ -81,17 +83,18 @@ const TremorChart = () => {
     fetchData(); // Fetch data when the component mounts
   }, []); // Empty dependency array ensures this runs only once
 
-  return (
-    <div style={{ padding: "20px" }}>
-      <h2 style={{ textAlign: "center" }}>Tremor Data Visualization</h2>
+return (
+    <div style={{ width: "100%", height: "100%" }}>
       <Chart
         options={chartData.options}
         series={chartData.series}
-        type="line" // Change to 'bar' or 'area' if needed
-        width="800"
+        type="line"
+        width="100%"
+        height="100%"
       />
     </div>
   );
+  
 };
 
 export default TremorChart;

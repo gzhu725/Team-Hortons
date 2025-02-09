@@ -3,6 +3,7 @@ import { Container, AppBar, Box, Button } from "@mui/material";
 import Navbar from "../components/Navbar";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import TremorChart from "../components/TremorChart";
 
 const Home = () => {
   const [date, setDate] = useState(new Date());
@@ -152,15 +153,20 @@ const Home = () => {
               }
             </Box>
 
-            {/* Bottom Section (inside the right section) */}
-            <Box
+             {/* Bottom Box: Long-term data (Place your chart here) */}
+             <Box
               style={{
-                flex: 1, // Takes up part of the vertical space
+                flex: 1,
                 border: "1px solid #ccc",
                 padding: "1rem",
+                display: "flex",
+                flexDirection: "column",
+                minHeight: "500px",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              long term data
+              <TremorChart />
             </Box>
           </Box>
         </Box>

@@ -15,6 +15,7 @@ import {
 import Navbar from "../components/Navbar";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import TremorChart from "../components/TremorChart";
 
 const PatientPage = () => {
   const { patientId } = useParams();
@@ -172,9 +173,13 @@ const PatientPage = () => {
                 flex: 1, // Takes up part of the vertical space
                 border: "1px solid #ccc",
                 padding: "1rem",
+                display: "flex",
+                flexDirection: "column", 
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
-              long term data
+              <TremorChart />
             </Box>
           </Box>
         </Box>
