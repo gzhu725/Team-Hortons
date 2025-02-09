@@ -6,6 +6,8 @@ import Home from "./pages/index.js";
 import DoctorPage from "./pages/doctor.js"
 import PatientPage from "./pages/patient.js"
 import { CssBaseline } from "@mui/material"; 
+import TremorChart from "./components/TremorChart";
+
 
 const theme = createTheme({
   typography: {
@@ -46,6 +48,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/doctor" element={<DoctorPage />} />
         <Route path="/patient/:patientId" element={<PatientPage />} />
+        <Route path="/tremor-chart" element={<TremorChart />} />  {/* New route for the chart */}
       </Routes>
     </ThemeProvider>
   );

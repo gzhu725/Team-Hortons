@@ -8,6 +8,7 @@
     "@mui/icons-material": "^6.4.3",
     "@mui/material": "^6.4.3",
     "apexcharts": "^4.4.0",
+    "axios": "^1.7.9",
     "cra-template": "1.2.0",
     "mui": "^0.0.1",
     "react": "^19.0.0",
