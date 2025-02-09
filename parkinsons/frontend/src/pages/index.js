@@ -3,6 +3,7 @@ import { Container, AppBar, Box, Button } from "@mui/material";
 import Navbar from "../components/Navbar";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import Chart from 'react-apexcharts'
 
 const Home = () => {
   const [date, setDate] = useState(new Date());
@@ -11,13 +12,63 @@ const Home = () => {
   let bluetoothDevice;
   let characteristic;
 
-  const handleNotification = (event) => {
-    lastMessageTimeRef.current = Date.now();
-    console.log(event);
-    setBluetoothDeviceName(bluetoothDevice.name); // TODO: maybe remove, this might trash performance, todo see
-    console.log(bluetoothDevice);
+  let incomingBuffer = '';
 
+function handleNotification(event) {
+
+    lastMessageTimeRef.current = Date.now();
+    setBluetoothDeviceName(bluetoothDevice.name); // TODO: maybe remove, this might trash performance, todo see
+  // Convert the incoming DataView to a string
+  const chunk = new TextDecoder().decode(event.target.value);
+  //console.log(chunk);
+  // Append the new chunk to the global buffer
+  incomingBuffer += chunk;
+
+  // Look for complete JSON objects in the buffer.
+  // We assume each JSON object starts with '{' and ends with the matching '}'.
+  let startIdx = incomingBuffer.indexOf('{');
+  while (startIdx !== -1) {
+    let openBraces = 0;
+    let endIdx = -1;
+
+    // Iterate from the first '{' to find the matching '}'
+    for (let i = startIdx; i < incomingBuffer.length; i++) {
+      if (incomingBuffer[i] === '{') {
+        openBraces++;
+      } else if (incomingBuffer[i] === '}') {
+        openBraces--;
+        // When all opened braces are closed, we've found a complete JSON object
+        if (openBraces === 0) {
+          endIdx = i;
+          break;
+        }
+      }
+    }
+
+    // If no complete object is found, exit the loop and wait for more data.
+    if (endIdx === -1) {
+      break;
+    }
+
+    // Extract the complete JSON string
+    const jsonString = incomingBuffer.slice(startIdx, endIdx + 1);
+    try {
+      const jsonObj = JSON.parse(jsonString);
+      console.log("Received JSON object:", jsonObj);
+      // Process jsonObj as needed...
+      addDataPoint({x:Date.now(), y:jsonObj.smooth_accel});
+    } catch (error) {
+      console.error("Error parsing JSON:", error);
+    }
+
+    // Remove the processed JSON data from the buffer
+    incomingBuffer = incomingBuffer.slice(endIdx + 1);
+
+    // Check if there's another JSON object starting in the remaining buffer
+    startIdx = incomingBuffer.indexOf('{');
   }
+}
+
   useEffect(() => {
     const timerInterval = setInterval(() => {
       const timeSinceLastMessage = Date.now() - lastMessageTimeRef.current;
@@ -28,6 +79,41 @@ const Home = () => {
 
     return () => clearInterval(timerInterval);
   }, []);
+
+  const [chartData, setChartData] = useState({
+    series: [{
+      name: 'Total Value',
+      data: []
+    }],
+    options: {
+      chart: {
+        type: 'line',
+        animations: {
+          enabled: true,
+          easing: 'linear',
+          dynamicAnimation: {
+            speed: 1000
+          }
+        }
+      },
+      xaxis: {
+        type: 'datetime'
+      },
+      title: { text: 'Dynamic Updating Chart', align: 'left' },
+    },
+  });
+
+  // Function to add a new data point to the chart.
+  // newPoint should be an object in the format: { x: timestamp, y: value }
+  const addDataPoint = (newPoint) => {
+    setChartData(prevState => ({
+      ...prevState,
+      series: [{
+        ...prevState.series[0],
+        data: [...prevState.series[0].data, newPoint]
+      }]
+    }));
+  };
 
   const connectBluetooth = () => {
     // Example uses the Nordic UART Service (NUS).
@@ -132,8 +218,8 @@ const Home = () => {
                 border: "1px solid #ccc",
                 padding: "1rem",
 
-                
-                  
+
+
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -160,6 +246,12 @@ const Home = () => {
                 padding: "1rem",
               }}
             >
+              <Chart
+                options={chartData.options}
+                series={chartData.series}
+                type="line"
+                height="350"
+              />
               long term data
             </Box>
           </Box>
