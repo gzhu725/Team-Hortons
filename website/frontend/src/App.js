@@ -10,6 +10,7 @@ import LoginPage from "./pages/login.js";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import AccountPage from "./pages/account";
 import SignUpPage from "./pages/signup";
+import TremorChart from "./components/TremorChart";
 
 const PrivateRoute = ({ element }) => {
   const { isLoggedIn } = useAuth();
@@ -67,6 +68,8 @@ function App() {
             path="/account/:userId"
             element={<PrivateRoute element={<AccountPage />} />}
           />
+
+          <Route path="/tremor-chart" element={<TremorChart />} />  {/* New route for the chart */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </ThemeProvider>
