@@ -1,0 +1,1302 @@
+[
+    {
+        "user_id": "SW875WC",
+        "email": "tanya@gmail.com",
+        "password": "tanya",
+        "personal_details": {
+            "first_name": "Tanya",
+            "last_name": "Cook",
+            "date_of_birth": "1977-07-26",
+            "gender": "Non-binary",
+            "phone_number": "449.879.8590x3123"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2021-05-27",
+            "parkinson_stage": "Late",
+            "doctor_name": "Pamela Lee",
+            "doctor_contact": "416.836.0549x117",
+            "medications": [
+                {
+                    "medication_name": "Pramipexole",
+                    "dosage": "77mg",
+                    "frequency": "Twice a day",
+                    "start_date": "2023-11-26",
+                    "notes": "Report she he stop himself ask."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "top",
+                    "reaction": "difficulty breathing"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "bi-weekly",
+            "reminders_enabled": true,
+            "preferred_reminder_time": "14:25:48",
+            "data_sharing_consent": true
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": true,
+                "new_feature_announcements": true
+            },
+            "theme": "system default",
+            "language": "English"
+        },
+        "emergency_contact": {
+            "name": "Philip Rangel",
+            "relationship": "Child",
+            "phone_number": "001-453-289-7140x888",
+            "email": "tammycox@roman-moore.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "7962b318-5212-4b4e-942f-7aba7728a632",
+                "activity_type": "tremor event",
+                "timestamp": "2025-01-24T21:24:49",
+                "details": "Part structure begin chair."
+            }
+        ],
+        "created_at": "2025-01-26T05:27:28",
+        "updated_at": "2025-01-07T04:37:37",
+        "account_status": "deleted"
+    },
+    {
+        "user_id": "XR564ZJ",
+        "email": "gglenn@gmail.com",
+        "password": "(mm170Gx",
+        "personal_details": {
+            "first_name": "Adam",
+            "last_name": "Patel",
+            "date_of_birth": "1974-02-01",
+            "gender": "Female",
+            "phone_number": "129.166.2636x33271"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2019-01-11",
+            "parkinson_stage": "Late",
+            "doctor_name": "Jacqueline Stewart",
+            "doctor_contact": "(243)766-8663x29444",
+            "medications": [
+                {
+                    "medication_name": "Pramipexole",
+                    "dosage": "174mg",
+                    "frequency": "Once a day",
+                    "start_date": "2020-07-30",
+                    "notes": "Hundred office job commercial."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "audience",
+                    "reaction": "swelling"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "daily",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "07:28:22",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": false,
+                "new_feature_announcements": true
+            },
+            "theme": "dark",
+            "language": "Italian"
+        },
+        "emergency_contact": {
+            "name": "Kyle Calderon",
+            "relationship": "Spouse",
+            "phone_number": "705-893-3432",
+            "email": "melindapena@hotmail.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "280f5230-1b77-4edc-82e4-c2deb6114218",
+                "activity_type": "tremor event",
+                "timestamp": "2025-01-29T11:02:35",
+                "details": "Expert bar trade no."
+            }
+        ],
+        "created_at": "2025-01-16T08:26:28",
+        "updated_at": "2025-01-20T11:45:39",
+        "account_status": "suspended"
+    },
+    {
+        "user_id": "WF776AC",
+        "email": "richardvaldez@andrews-rogers.com",
+        "password": "Qz!8Aldcu",
+        "personal_details": {
+            "first_name": "Kathleen",
+            "last_name": "Lee",
+            "date_of_birth": "1984-06-08",
+            "gender": "Male",
+            "phone_number": "4788332575"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2015-10-05",
+            "parkinson_stage": "Late",
+            "doctor_name": "Jeremy Chang",
+            "doctor_contact": "889-741-5047",
+            "medications": [
+                {
+                    "medication_name": "Pramipexole",
+                    "dosage": "117mg",
+                    "frequency": "Once a day",
+                    "start_date": "2022-11-20",
+                    "notes": "Stock none challenge society."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "view",
+                    "reaction": "swelling"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "bi-weekly",
+            "reminders_enabled": true,
+            "preferred_reminder_time": "00:50:54",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": false,
+                "new_feature_announcements": false
+            },
+            "theme": "light",
+            "language": "German"
+        },
+        "emergency_contact": {
+            "name": "Johnny Reyes",
+            "relationship": "Sibling",
+            "phone_number": "(369)125-1148x71385",
+            "email": "hernandezstephen@hotmail.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "ac433786-f83a-437e-ad80-b95112db3938",
+                "activity_type": "tremor event",
+                "timestamp": "2025-01-22T00:00:19",
+                "details": "Everyone stand business claim wind."
+            }
+        ],
+        "created_at": "2025-01-24T12:42:20",
+        "updated_at": "2025-01-22T07:40:45",
+        "account_status": "active"
+    },
+    {
+        "user_id": "NZ101LZ",
+        "email": "sanchezchristopher@murray-johnson.com",
+        "password": "@qL5CDfbr7",
+        "personal_details": {
+            "first_name": "Ashley",
+            "last_name": "Fisher",
+            "date_of_birth": "1966-05-26",
+            "gender": "Male",
+            "phone_number": "118.135.0921"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2017-07-01",
+            "parkinson_stage": "Early",
+            "doctor_name": "Aaron Smith",
+            "doctor_contact": "180.870.3899x8656",
+            "medications": [
+                {
+                    "medication_name": "Amantadine",
+                    "dosage": "136mg",
+                    "frequency": "Twice a day",
+                    "start_date": "2021-07-06",
+                    "notes": "Music skin unit prevent measure south together better."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "seven",
+                    "reaction": "swelling"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "daily",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "13:00:53",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": true,
+                "new_feature_announcements": true
+            },
+            "theme": "system default",
+            "language": "French"
+        },
+        "emergency_contact": {
+            "name": "Haley Walker",
+            "relationship": "Spouse",
+            "phone_number": "001-329-142-5067x9645",
+            "email": "donna42@yahoo.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "1cad7fd6-fa08-4b10-894b-46ef9240fa63",
+                "activity_type": "appointment",
+                "timestamp": "2025-02-01T22:22:29",
+                "details": "Around finally catch play top nation."
+            }
+        ],
+        "created_at": "2025-02-01T01:25:18",
+        "updated_at": "2025-01-18T18:14:06",
+        "account_status": "suspended"
+    },
+    {
+        "user_id": "BC302UG",
+        "email": "qcoleman@hotmail.com",
+        "password": "^2WAd9",
+        "personal_details": {
+            "first_name": "Jonathan",
+            "last_name": "Taylor",
+            "date_of_birth": "1975-05-15",
+            "gender": "Prefer not to say",
+            "phone_number": "001-344-239-7758x31208"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2021-07-25",
+            "parkinson_stage": "Early",
+            "doctor_name": "Terry Olsen",
+            "doctor_contact": "(162)794-3743x886",
+            "medications": [
+                {
+                    "medication_name": "Carbidopa",
+                    "dosage": "63mg",
+                    "frequency": "Once a day",
+                    "start_date": "2020-12-23",
+                    "notes": "Summer off will cover last live follow."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "market",
+                    "reaction": "difficulty breathing"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "daily",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "15:31:35",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": true,
+                "health_updates": true,
+                "new_feature_announcements": true
+            },
+            "theme": "light",
+            "language": "German"
+        },
+        "emergency_contact": {
+            "name": "Ryan Harris",
+            "relationship": "Child",
+            "phone_number": "(529)847-8041x003",
+            "email": "james63@adkins-smith.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "a30101c1-90db-49b9-8312-f75723e2bdaf",
+                "activity_type": "appointment",
+                "timestamp": "2025-02-02T11:32:56",
+                "details": "Then ask everybody."
+            }
+        ],
+        "created_at": "2025-01-09T15:21:04",
+        "updated_at": "2025-01-17T20:38:33",
+        "account_status": "active"
+    },
+    {
+        "user_id": "OE900BV",
+        "email": "hammonddillon@wise.org",
+        "password": "X9z*kQlr%",
+        "personal_details": {
+            "first_name": "Alicia",
+            "last_name": "Dunn",
+            "date_of_birth": "1978-09-07",
+            "gender": "Prefer not to say",
+            "phone_number": "637-470-7801x06102"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2018-09-18",
+            "parkinson_stage": "Late",
+            "doctor_name": "Eric Huynh",
+            "doctor_contact": "(315)523-4529x65041",
+            "medications": [
+                {
+                    "medication_name": "Rasagiline",
+                    "dosage": "137mg",
+                    "frequency": "Every 8 hours",
+                    "start_date": "2023-02-27",
+                    "notes": "Well education run teach."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "assume",
+                    "reaction": "difficulty breathing"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "bi-weekly",
+            "reminders_enabled": true,
+            "preferred_reminder_time": "21:54:48",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": true,
+                "health_updates": true,
+                "new_feature_announcements": true
+            },
+            "theme": "light",
+            "language": "Italian"
+        },
+        "emergency_contact": {
+            "name": "Kyle Robinson",
+            "relationship": "Child",
+            "phone_number": "453-669-6965x33964",
+            "email": "lramirez@barnes-fletcher.info"
+        },
+        "activity_logs": [
+            {
+                "log_id": "58b4d13e-e03b-4f50-bb8e-ba8b7cb10f76",
+                "activity_type": "tremor event",
+                "timestamp": "2025-01-02T05:22:49",
+                "details": "Arrive third keep perhaps our money."
+            }
+        ],
+        "created_at": "2025-01-08T01:53:18",
+        "updated_at": "2025-01-22T04:46:31",
+        "account_status": "deleted"
+    },
+    {
+        "user_id": "TN483DV",
+        "email": "garciajennifer@fleming.com",
+        "password": "M_19aB8f",
+        "personal_details": {
+            "first_name": "Kathryn",
+            "last_name": "Suarez",
+            "date_of_birth": "1975-08-13",
+            "gender": "Prefer not to say",
+            "phone_number": "(576)015-3894x7892"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2017-05-23",
+            "parkinson_stage": "Late",
+            "doctor_name": "Donna Riley",
+            "doctor_contact": "118.060.9169x11219",
+            "medications": [
+                {
+                    "medication_name": "Amantadine",
+                    "dosage": "94mg",
+                    "frequency": "Once a day",
+                    "start_date": "2023-05-10",
+                    "notes": "Return enough method wish part everyone."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "board",
+                    "reaction": "rash"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "weekly",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "13:37:36",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": false,
+                "new_feature_announcements": true
+            },
+            "theme": "dark",
+            "language": "German"
+        },
+        "emergency_contact": {
+            "name": "Sarah Smith",
+            "relationship": "Friend",
+            "phone_number": "(250)470-2516x5303",
+            "email": "fbennett@gmail.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "743e8aa3-4c4c-4901-aa32-cd77cc4572f5",
+                "activity_type": "medication intake",
+                "timestamp": "2025-01-28T05:43:02",
+                "details": "Perhaps short base right but east."
+            }
+        ],
+        "created_at": "2025-01-25T01:01:24",
+        "updated_at": "2025-01-05T02:02:50",
+        "account_status": "deleted"
+    },
+    {
+        "user_id": "FV797YX",
+        "email": "xhampton@roberts-oconnor.biz",
+        "password": "%z41PVhua$",
+        "personal_details": {
+            "first_name": "Mason",
+            "last_name": "Hendrix",
+            "date_of_birth": "1977-10-21",
+            "gender": "Female",
+            "phone_number": "715.525.5355x362"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2021-01-26",
+            "parkinson_stage": "Mid",
+            "doctor_name": "Alexander May",
+            "doctor_contact": "+1-181-015-3052x2588",
+            "medications": [
+                {
+                    "medication_name": "Levodopa",
+                    "dosage": "173mg",
+                    "frequency": "Every 8 hours",
+                    "start_date": "2024-07-11",
+                    "notes": "Soon yet company beautiful high improve."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "south",
+                    "reaction": "rash"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "daily",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "10:36:10",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": true,
+                "new_feature_announcements": true
+            },
+            "theme": "dark",
+            "language": "English"
+        },
+        "emergency_contact": {
+            "name": "Alexandra Griffin",
+            "relationship": "Sibling",
+            "phone_number": "829-482-7448x55465",
+            "email": "othompson@wilson.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "98ddf71b-ec19-4f14-a64d-ca06a16118aa",
+                "activity_type": "appointment",
+                "timestamp": "2025-01-21T16:39:21",
+                "details": "Before continue sort both."
+            }
+        ],
+        "created_at": "2025-01-19T20:02:15",
+        "updated_at": "2025-02-08T10:41:12",
+        "account_status": "active"
+    },
+    {
+        "user_id": "YT956IH",
+        "email": "isaacmiller@gmail.com",
+        "password": "x)0EHn_z",
+        "personal_details": {
+            "first_name": "Maria",
+            "last_name": "Simpson",
+            "date_of_birth": "1964-10-23",
+            "gender": "Prefer not to say",
+            "phone_number": "+1-194-484-1448x371"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2018-01-22",
+            "parkinson_stage": "Late",
+            "doctor_name": "Melissa Rogers",
+            "doctor_contact": "(313)161-2064x5636",
+            "medications": [
+                {
+                    "medication_name": "Pramipexole",
+                    "dosage": "129mg",
+                    "frequency": "Once a day",
+                    "start_date": "2022-04-22",
+                    "notes": "To summer share short scientist structure."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "those",
+                    "reaction": "swelling"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "daily",
+            "reminders_enabled": true,
+            "preferred_reminder_time": "09:39:17",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": true,
+                "health_updates": true,
+                "new_feature_announcements": true
+            },
+            "theme": "dark",
+            "language": "Italian"
+        },
+        "emergency_contact": {
+            "name": "Nicholas Church",
+            "relationship": "Child",
+            "phone_number": "001-946-064-4628x113",
+            "email": "mosleyemily@hall.info"
+        },
+        "activity_logs": [
+            {
+                "log_id": "9aca64c2-dd6c-4b51-8441-902c10698ef8",
+                "activity_type": "medication intake",
+                "timestamp": "2025-01-17T00:16:11",
+                "details": "Tax against free parent three."
+            }
+        ],
+        "created_at": "2025-01-16T22:38:09",
+        "updated_at": "2025-01-01T12:53:57",
+        "account_status": "suspended"
+    },
+    {
+        "user_id": "DV581DW",
+        "email": "hmaddox@hansen-serrano.com",
+        "password": "@h4N8Tv",
+        "personal_details": {
+            "first_name": "Shelly",
+            "last_name": "Wood",
+            "date_of_birth": "1961-12-18",
+            "gender": "Prefer not to say",
+            "phone_number": "197-571-9740x662"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2022-03-27",
+            "parkinson_stage": "Early",
+            "doctor_name": "Angela Wallace",
+            "doctor_contact": "2141334342",
+            "medications": [
+                {
+                    "medication_name": "Entacapone",
+                    "dosage": "133mg",
+                    "frequency": "Twice a day",
+                    "start_date": "2021-05-26",
+                    "notes": "Really society anything mind."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "degree",
+                    "reaction": "swelling"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "bi-weekly",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "12:54:47",
+            "data_sharing_consent": true
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": true,
+                "health_updates": false,
+                "new_feature_announcements": false
+            },
+            "theme": "light",
+            "language": "Italian"
+        },
+        "emergency_contact": {
+            "name": "Terrance Ramirez",
+            "relationship": "Parent",
+            "phone_number": "172.935.0622x4590",
+            "email": "thomas92@lee.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "737c012e-5e67-400b-a802-f11e94c4a8f7",
+                "activity_type": "tremor event",
+                "timestamp": "2025-01-04T16:42:07",
+                "details": "Other believe especially young strong would."
+            }
+        ],
+        "created_at": "2025-02-01T11:45:13",
+        "updated_at": "2025-01-15T01:51:56",
+        "account_status": "suspended"
+    },
+    {
+        "user_id": "JM569SZ",
+        "email": "christina83@webster.info",
+        "password": "k#0F+n)",
+        "personal_details": {
+            "first_name": "Debbie",
+            "last_name": "Elliott",
+            "date_of_birth": "1961-03-07",
+            "gender": "Male",
+            "phone_number": "241.303.1498x068"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2022-08-20",
+            "parkinson_stage": "Mid",
+            "doctor_name": "David Rojas",
+            "doctor_contact": "8276214119",
+            "medications": [
+                {
+                    "medication_name": "Entacapone",
+                    "dosage": "38mg",
+                    "frequency": "Once a day",
+                    "start_date": "2021-03-30",
+                    "notes": "Teach experience western guess institution vote city."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "white",
+                    "reaction": "rash"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "weekly",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "20:38:45",
+            "data_sharing_consent": true
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": true,
+                "new_feature_announcements": false
+            },
+            "theme": "light",
+            "language": "German"
+        },
+        "emergency_contact": {
+            "name": "Neil Obrien",
+            "relationship": "Sibling",
+            "phone_number": "2118384515",
+            "email": "fmckay@mendoza-kirk.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "8177ab20-06e8-412a-ac88-fa7360c2de2d",
+                "activity_type": "medication intake",
+                "timestamp": "2025-02-04T01:19:46",
+                "details": "Tough worry group indeed rise."
+            }
+        ],
+        "created_at": "2025-01-08T13:01:03",
+        "updated_at": "2025-01-26T16:18:29",
+        "account_status": "active"
+    },
+    {
+        "user_id": "LS330EP",
+        "email": "dunnfrederick@jennings.com",
+        "password": "J$9Xhj",
+        "personal_details": {
+            "first_name": "Michael",
+            "last_name": "Evans",
+            "date_of_birth": "1960-12-25",
+            "gender": "Non-binary",
+            "phone_number": "515.990.1001"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2020-08-31",
+            "parkinson_stage": "Early",
+            "doctor_name": "Karen Johnson",
+            "doctor_contact": "715.890.6099x8484",
+            "medications": [
+                {
+                    "medication_name": "Benztropine",
+                    "dosage": "136mg",
+                    "frequency": "Twice a day",
+                    "start_date": "2022-07-23",
+                    "notes": "Since reveal fear thank street."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "gun",
+                    "reaction": "difficulty breathing"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "bi-weekly",
+            "reminders_enabled": true,
+            "preferred_reminder_time": "18:28:31",
+            "data_sharing_consent": true
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": true,
+                "health_updates": false,
+                "new_feature_announcements": true
+            },
+            "theme": "system default",
+            "language": "Spanish"
+        },
+        "emergency_contact": {
+            "name": "Karen Allen",
+            "relationship": "Child",
+            "phone_number": "001-197-061-8447",
+            "email": "dlynch@dyer-wilson.info"
+        },
+        "activity_logs": [
+            {
+                "log_id": "9f5c2598-9711-4048-b41b-db60fcafc6c6",
+                "activity_type": "medication intake",
+                "timestamp": "2025-01-26T01:08:31",
+                "details": "Size surface hospital able interest debate himself."
+            }
+        ],
+        "created_at": "2025-01-31T20:32:52",
+        "updated_at": "2025-01-29T10:31:11",
+        "account_status": "active"
+    },
+    {
+        "user_id": "YT241FQ",
+        "email": "charles86@collins.biz",
+        "password": ")y7Bj1QfN",
+        "personal_details": {
+            "first_name": "Clifford",
+            "last_name": "Perez",
+            "date_of_birth": "1981-08-01",
+            "gender": "Male",
+            "phone_number": "9057914812"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2021-12-26",
+            "parkinson_stage": "Mid",
+            "doctor_name": "Donald Austin",
+            "doctor_contact": "(986)232-2546x794",
+            "medications": [
+                {
+                    "medication_name": "Apomorphine",
+                    "dosage": "185mg",
+                    "frequency": "Every 8 hours",
+                    "start_date": "2022-06-25",
+                    "notes": "Approach third his good."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "possible",
+                    "reaction": "rash"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "weekly",
+            "reminders_enabled": true,
+            "preferred_reminder_time": "18:08:49",
+            "data_sharing_consent": true
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": true,
+                "health_updates": true,
+                "new_feature_announcements": false
+            },
+            "theme": "light",
+            "language": "Spanish"
+        },
+        "emergency_contact": {
+            "name": "Hector Johnson",
+            "relationship": "Friend",
+            "phone_number": "+1-861-381-8684x6313",
+            "email": "danagreen@yahoo.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "cac3277a-b0b5-40b4-a8ab-2789f0ab545c",
+                "activity_type": "appointment",
+                "timestamp": "2025-02-05T08:13:30",
+                "details": "Three quality defense television."
+            }
+        ],
+        "created_at": "2025-02-04T21:07:10",
+        "updated_at": "2025-01-28T23:18:57",
+        "account_status": "deleted"
+    },
+    {
+        "user_id": "NQ880UG",
+        "email": "caitlyn18@martinez.org",
+        "password": "@omVI(gU61",
+        "personal_details": {
+            "first_name": "Gina",
+            "last_name": "Patterson",
+            "date_of_birth": "1983-11-07",
+            "gender": "Male",
+            "phone_number": "(040)557-1444"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2016-01-30",
+            "parkinson_stage": "Late",
+            "doctor_name": "Lisa Zuniga",
+            "doctor_contact": "287-266-4290x07962",
+            "medications": [
+                {
+                    "medication_name": "Apomorphine",
+                    "dosage": "193mg",
+                    "frequency": "Every 8 hours",
+                    "start_date": "2024-10-07",
+                    "notes": "Road fear word book reason."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "security",
+                    "reaction": "difficulty breathing"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "weekly",
+            "reminders_enabled": true,
+            "preferred_reminder_time": "13:03:13",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": true,
+                "health_updates": true,
+                "new_feature_announcements": false
+            },
+            "theme": "dark",
+            "language": "German"
+        },
+        "emergency_contact": {
+            "name": "Julie Collins",
+            "relationship": "Spouse",
+            "phone_number": "199-529-8370",
+            "email": "palvarez@gmail.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "63b019e0-96a0-4f82-8c3a-6301ca780444",
+                "activity_type": "medication intake",
+                "timestamp": "2025-01-10T10:55:15",
+                "details": "Least form require enjoy."
+            }
+        ],
+        "created_at": "2025-01-06T05:57:38",
+        "updated_at": "2025-01-21T21:29:49",
+        "account_status": "suspended"
+    },
+    {
+        "user_id": "WW516AQ",
+        "email": "stevenyates@yahoo.com",
+        "password": "$gg4NgF",
+        "personal_details": {
+            "first_name": "Karen",
+            "last_name": "Hanson",
+            "date_of_birth": "1988-12-19",
+            "gender": "Male",
+            "phone_number": "001-577-395-3927x4425"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2019-12-15",
+            "parkinson_stage": "Late",
+            "doctor_name": "Donald Myers",
+            "doctor_contact": "+1-460-399-6734",
+            "medications": [
+                {
+                    "medication_name": "Apomorphine",
+                    "dosage": "80mg",
+                    "frequency": "Twice a day",
+                    "start_date": "2023-01-14",
+                    "notes": "Prevent no lawyer yard."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "defense",
+                    "reaction": "swelling"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "daily",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "14:41:09",
+            "data_sharing_consent": true
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": true,
+                "new_feature_announcements": false
+            },
+            "theme": "dark",
+            "language": "Italian"
+        },
+        "emergency_contact": {
+            "name": "Benjamin Knight",
+            "relationship": "Child",
+            "phone_number": "768.286.8597x9580",
+            "email": "davidboyle@le.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "d529f649-252c-41d5-ae36-926b10026ac3",
+                "activity_type": "tremor event",
+                "timestamp": "2025-02-07T04:36:59",
+                "details": "Like loss nature factor left read set."
+            }
+        ],
+        "created_at": "2025-01-02T21:17:23",
+        "updated_at": "2025-02-06T02:44:27",
+        "account_status": "deleted"
+    },
+    {
+        "user_id": "ZF149LO",
+        "email": "diana08@gmail.com",
+        "password": "(i0JaCI200",
+        "personal_details": {
+            "first_name": "Gina",
+            "last_name": "Craig",
+            "date_of_birth": "1971-05-28",
+            "gender": "Prefer not to say",
+            "phone_number": "438-338-3176"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2021-05-28",
+            "parkinson_stage": "Late",
+            "doctor_name": "Shannon Bell",
+            "doctor_contact": "001-416-798-4286x240",
+            "medications": [
+                {
+                    "medication_name": "Rasagiline",
+                    "dosage": "186mg",
+                    "frequency": "Every 8 hours",
+                    "start_date": "2020-05-24",
+                    "notes": "East owner meeting successful when officer."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "kitchen",
+                    "reaction": "difficulty breathing"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "bi-weekly",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "17:13:52",
+            "data_sharing_consent": true
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": false,
+                "new_feature_announcements": false
+            },
+            "theme": "light",
+            "language": "Italian"
+        },
+        "emergency_contact": {
+            "name": "Greg Baird",
+            "relationship": "Child",
+            "phone_number": "011-131-4994",
+            "email": "hollyking@green-barber.info"
+        },
+        "activity_logs": [
+            {
+                "log_id": "877be09b-4499-4aca-a53e-88f2e358fb68",
+                "activity_type": "medication intake",
+                "timestamp": "2025-01-31T19:30:53",
+                "details": "Detail focus measure at myself."
+            }
+        ],
+        "created_at": "2025-02-07T00:02:59",
+        "updated_at": "2025-01-18T22:31:55",
+        "account_status": "suspended"
+    },
+    {
+        "user_id": "MK062PE",
+        "email": "willieallen@arnold.org",
+        "password": "^98Igpp",
+        "personal_details": {
+            "first_name": "Zachary",
+            "last_name": "Cain",
+            "date_of_birth": "1972-07-07",
+            "gender": "Prefer not to say",
+            "phone_number": "001-636-213-5470x58155"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2016-04-12",
+            "parkinson_stage": "Early",
+            "doctor_name": "Cynthia Sanders",
+            "doctor_contact": "520-819-1872x16838",
+            "medications": [
+                {
+                    "medication_name": "Selegiline",
+                    "dosage": "58mg",
+                    "frequency": "Every 8 hours",
+                    "start_date": "2021-05-06",
+                    "notes": "Environment growth modern possible year visit interesting."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "nothing",
+                    "reaction": "difficulty breathing"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "bi-weekly",
+            "reminders_enabled": true,
+            "preferred_reminder_time": "16:28:55",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": true,
+                "health_updates": false,
+                "new_feature_announcements": false
+            },
+            "theme": "system default",
+            "language": "German"
+        },
+        "emergency_contact": {
+            "name": "Mercedes Bell",
+            "relationship": "Friend",
+            "phone_number": "(779)878-6679x22789",
+            "email": "megandaniels@hotmail.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "40669c9a-aee4-4401-b0b6-a4767cdefef7",
+                "activity_type": "appointment",
+                "timestamp": "2025-02-08T14:03:28",
+                "details": "Alone main employee thank voice film dog teacher."
+            }
+        ],
+        "created_at": "2025-01-15T22:07:23",
+        "updated_at": "2025-01-11T14:49:28",
+        "account_status": "suspended"
+    },
+    {
+        "user_id": "PK802AR",
+        "email": "janetperry@gmail.com",
+        "password": "*^5VTd",
+        "personal_details": {
+            "first_name": "Lindsey",
+            "last_name": "Moore",
+            "date_of_birth": "1980-01-20",
+            "gender": "Male",
+            "phone_number": "993-155-4655x071"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2018-09-19",
+            "parkinson_stage": "Late",
+            "doctor_name": "James Taylor",
+            "doctor_contact": "+1-589-780-7866x02849",
+            "medications": [
+                {
+                    "medication_name": "Pramipexole",
+                    "dosage": "131mg",
+                    "frequency": "Once a day",
+                    "start_date": "2021-03-12",
+                    "notes": "Top seem skin out affect magazine."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "newspaper",
+                    "reaction": "swelling"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "weekly",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "08:37:21",
+            "data_sharing_consent": true
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": true,
+                "health_updates": false,
+                "new_feature_announcements": true
+            },
+            "theme": "light",
+            "language": "English"
+        },
+        "emergency_contact": {
+            "name": "Deborah Huang",
+            "relationship": "Child",
+            "phone_number": "631-737-5587x1400",
+            "email": "paul38@gmail.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "6a0eaf19-7399-41f1-9e02-af0da4e5a111",
+                "activity_type": "medication intake",
+                "timestamp": "2025-01-30T00:07:04",
+                "details": "Fill operation happy environmental leave include."
+            }
+        ],
+        "created_at": "2025-01-26T12:50:01",
+        "updated_at": "2025-01-23T17:39:32",
+        "account_status": "deleted"
+    },
+    {
+        "user_id": "RS184GU",
+        "email": "erica73@webb-dudley.com",
+        "password": "T_Q1TtWrz",
+        "personal_details": {
+            "first_name": "James",
+            "last_name": "Owen",
+            "date_of_birth": "1980-01-24",
+            "gender": "Female",
+            "phone_number": "+1-025-731-1128x883"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2022-12-25",
+            "parkinson_stage": "Late",
+            "doctor_name": "Dale Merritt",
+            "doctor_contact": "080.905.7624x2694",
+            "medications": [
+                {
+                    "medication_name": "Pramipexole",
+                    "dosage": "170mg",
+                    "frequency": "Every 8 hours",
+                    "start_date": "2020-07-25",
+                    "notes": "Democrat cell major know."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "significant",
+                    "reaction": "difficulty breathing"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "weekly",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "14:15:42",
+            "data_sharing_consent": true
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": true,
+                "new_feature_announcements": true
+            },
+            "theme": "system default",
+            "language": "German"
+        },
+        "emergency_contact": {
+            "name": "Jennifer Fields",
+            "relationship": "Parent",
+            "phone_number": "596.095.5283x829",
+            "email": "salazarryan@hotmail.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "8266e257-53a7-43e1-968b-50af9d674269",
+                "activity_type": "medication intake",
+                "timestamp": "2025-01-10T00:51:56",
+                "details": "Woman car decision such thing."
+            }
+        ],
+        "created_at": "2025-02-01T21:12:35",
+        "updated_at": "2025-01-05T15:12:10",
+        "account_status": "suspended"
+    },
+    {
+        "user_id": "YK280PN",
+        "email": "tanya27@hayes-davis.com",
+        "password": "$0CAyD",
+        "personal_details": {
+            "first_name": "Austin",
+            "last_name": "Ramirez",
+            "date_of_birth": "1957-05-29",
+            "gender": "Female",
+            "phone_number": "741-397-8999"
+        },
+        "medical_profile": {
+            "diagnosis_date": "2022-02-25",
+            "parkinson_stage": "Late",
+            "doctor_name": "Judy Reid",
+            "doctor_contact": "+1-362-445-8198x698",
+            "medications": [
+                {
+                    "medication_name": "Entacapone",
+                    "dosage": "20mg",
+                    "frequency": "Once a day",
+                    "start_date": "2023-09-11",
+                    "notes": "Tend according large include identify bar peace."
+                }
+            ],
+            "allergies": [
+                {
+                    "allergy_name": "family",
+                    "reaction": "swelling"
+                }
+            ]
+        },
+        "tremor_tracking_settings": {
+            "tracking_frequency": "daily",
+            "reminders_enabled": false,
+            "preferred_reminder_time": "07:03:58",
+            "data_sharing_consent": false
+        },
+        "app_preferences": {
+            "notification_settings": {
+                "reminder_notifications": false,
+                "health_updates": false,
+                "new_feature_announcements": false
+            },
+            "theme": "light",
+            "language": "French"
+        },
+        "emergency_contact": {
+            "name": "Monica Charles",
+            "relationship": "Friend",
+            "phone_number": "507-575-9534",
+            "email": "ybrown@hotmail.com"
+        },
+        "activity_logs": [
+            {
+                "log_id": "fdc668ef-2707-41c6-bdc5-76f3d7b5b996",
+                "activity_type": "appointment",
+                "timestamp": "2025-01-23T16:08:51",
+                "details": "For until but how your serve American."
+            }
+        ],
+        "created_at": "2025-02-06T11:30:49",
+        "updated_at": "2025-01-23T02:06:03",
+        "account_status": "active"
+    }
+]
