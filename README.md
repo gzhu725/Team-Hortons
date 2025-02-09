@@ -27,3 +27,12 @@ The TulipTrack website uses React for the frontend, and MongoDB to store patient
 ## What we learned
 
 ## What's next for TulipTrack
+
+
+**Members:**
+| Name                | GitHub Username |
+| ------------------- | --------------- | 
+| Gloria Zhu          | gzhu725         |
+| Meghana Madiraju    | MeghanaM4       |
+| Joy Wang            | jabnow          |
+| Karmanyaah Malhotra | karmanyaahm     |
