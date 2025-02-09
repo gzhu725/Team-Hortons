@@ -65,9 +65,12 @@ r = digitalio.DigitalInOut(board.D6)
 r.switch_to_output(False)
 
 
+count = 0
 def status(good):
+    global count
+    count = (count + 1) % 20
     r.value = good
-    g.value = not good
+    g.value = not good if count > 2 else 1
 status(1)
 
 battery_adc = analogio.AnalogIn(board.VBATT)
@@ -210,9 +213,9 @@ while True:
         prev_smooth_az = smooth_az
         prev_time = current_time
 
-    # Compute the magnitude of the smoothed acceleration vector
-    # Check if the magnitude is above the defined threshold
-    recent_readings.append(smooth_jerk > JERK_THRESHOLD)
+        # Compute the magnitude of the smoothed acceleration vector
+        # Check if the magnitude is above the defined threshold
+        recent_readings.append(smooth_jerk > JERK_THRESHOLD)
     # Only evaluate if we have a full window of measurements
     if len(recent_readings) == TIME_THRESHOLD:
         # Count how many of the last TIME_THRESHOLD readings were above threshold

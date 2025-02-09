@@ -8,8 +8,9 @@ import Chart from 'react-apexcharts'
 
 const Home = () => {
   const [date, setDate] = useState(new Date());
+  const [aboveThresh, setAboveThresh] = useState(false);
   const { isLoggedIn, setIsLoggedIn, login, logout, isPatient, setIsPatient, user, setUser } =
-  useAuth();
+    useAuth();
   const [bluetoothDeviceName, setBluetoothDeviceName] = useState("");
   const lastMessageTimeRef = useRef(Date.now());
   let bluetoothDevice;
@@ -17,60 +18,61 @@ const Home = () => {
 
   let incomingBuffer = '';
 
-function handleNotification(event) {
+  function handleNotification(event) {
 
     lastMessageTimeRef.current = Date.now();
     setBluetoothDeviceName(bluetoothDevice.name); // TODO: maybe remove, this might trash performance, todo see
-  // Convert the incoming DataView to a string
-  const chunk = new TextDecoder().decode(event.target.value);
-  //console.log(chunk);
-  // Append the new chunk to the global buffer
-  incomingBuffer += chunk;
+    // Convert the incoming DataView to a string
+    const chunk = new TextDecoder().decode(event.target.value);
+    //console.log(chunk);
+    // Append the new chunk to the global buffer
+    incomingBuffer += chunk;
 
-  // Look for complete JSON objects in the buffer.
-  // We assume each JSON object starts with '{' and ends with the matching '}'.
-  let startIdx = incomingBuffer.indexOf('{');
-  while (startIdx !== -1) {
-    let openBraces = 0;
-    let endIdx = -1;
+    // Look for complete JSON objects in the buffer.
+    // We assume each JSON object starts with '{' and ends with the matching '}'.
+    let startIdx = incomingBuffer.indexOf('{');
+    while (startIdx !== -1) {
+      let openBraces = 0;
+      let endIdx = -1;
 
-    // Iterate from the first '{' to find the matching '}'
-    for (let i = startIdx; i < incomingBuffer.length; i++) {
-      if (incomingBuffer[i] === '{') {
-        openBraces++;
-      } else if (incomingBuffer[i] === '}') {
-        openBraces--;
-        // When all opened braces are closed, we've found a complete JSON object
-        if (openBraces === 0) {
-          endIdx = i;
-          break;
+      // Iterate from the first '{' to find the matching '}'
+      for (let i = startIdx; i < incomingBuffer.length; i++) {
+        if (incomingBuffer[i] === '{') {
+          openBraces++;
+        } else if (incomingBuffer[i] === '}') {
+          openBraces--;
+          // When all opened braces are closed, we've found a complete JSON object
+          if (openBraces === 0) {
+            endIdx = i;
+            break;
+          }
         }
       }
+
+      // If no complete object is found, exit the loop and wait for more data.
+      if (endIdx === -1) {
+        break;
+      }
+
+      // Extract the complete JSON string
+      const jsonString = incomingBuffer.slice(startIdx, endIdx + 1);
+      try {
+        const jsonObj = JSON.parse(jsonString);
+        console.log("Received JSON object:", jsonObj);
+        // Process jsonObj as needed...
+        setAboveThresh(jsonObj.above_thresh);
+        addDataPoint({ x: Date.now(), y: jsonObj.smooth_jerk });
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+      }
+
+      // Remove the processed JSON data from the buffer
+      incomingBuffer = incomingBuffer.slice(endIdx + 1);
+
+      // Check if there's another JSON object starting in the remaining buffer
+      startIdx = incomingBuffer.indexOf('{');
     }
-
-    // If no complete object is found, exit the loop and wait for more data.
-    if (endIdx === -1) {
-      break;
-    }
-
-    // Extract the complete JSON string
-    const jsonString = incomingBuffer.slice(startIdx, endIdx + 1);
-    try {
-      const jsonObj = JSON.parse(jsonString);
-      console.log("Received JSON object:", jsonObj);
-      // Process jsonObj as needed...
-      addDataPoint({x:Date.now(), y:jsonObj.smooth_jerk});
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
-    }
-
-    // Remove the processed JSON data from the buffer
-    incomingBuffer = incomingBuffer.slice(endIdx + 1);
-
-    // Check if there's another JSON object starting in the remaining buffer
-    startIdx = incomingBuffer.indexOf('{');
   }
-}
 
   useEffect(() => {
     const timerInterval = setInterval(() => {
@@ -230,15 +232,25 @@ function handleNotification(event) {
                 textAlign: "center",
               }}
             >
+
               {
                 bluetoothDeviceName ?
                   <div>
+                    <p style={{ color: aboveThresh ? "red" : "green", fontSize: "24pt", fontWeight: "bold" }}>
+                      Patient Status: {aboveThresh ? "Bad" : "Good"}
+                    </p>
                     <Button onClick={connectBluetooth}>{"Connected to " + (bluetoothDeviceName ? bluetoothDeviceName : "none")}</Button>
-                    <Box bgcolor="white"></Box>
+                    <Chart
+                      options={chartData.options}
+                      series={chartData.series}
+                      type="line"
+                      height="350"
+                    />
                   </div>
                   :
                   <Button size="large" sx={{ fontSize: '20pt' }} onClick={connectBluetooth}>{"Please connect to the device"}</Button>
               }
+
             </Box>
 
             {/* Bottom Section (inside the right section) */}
@@ -249,13 +261,7 @@ function handleNotification(event) {
                 padding: "1rem",
               }}
             >
-              <Chart
-                options={chartData.options}
-                series={chartData.series}
-                type="line"
-                height="350"
-              />
-              long term data
+
             </Box>
           </Box>
         </Box>
