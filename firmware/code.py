@@ -23,7 +23,7 @@ import json
 ALPHA = 0.2
 
 # Acceleration threshold for magnitude (m/s^2)
-JERK_THRESHOLD = 10
+JERK_THRESHOLD = 7
 # Loop delay (seconds) => determines sampling rate
 LOOP_DELAY = 0.05
 
