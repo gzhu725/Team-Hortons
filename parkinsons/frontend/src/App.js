@@ -4,7 +4,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/index.js";
 import DoctorPage from "./pages/doctor.js"
-import { CssBaseline } from "@mui/material"; // Import CssBaseline
+import PatientPage from "./pages/patient.js"
+import { CssBaseline } from "@mui/material"; 
 
 const theme = createTheme({
   typography: {
@@ -12,7 +13,7 @@ const theme = createTheme({
   },
   palette: {
     background: {
-      default: "#ccffbf", // Set background color
+      default: "#dce0dc", // Set background color
     },
     text: {
       primary: "#333", // Set text color (optional)
@@ -23,14 +24,14 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: "#ffcfe6", // Custom AppBar background color
+         backgroundColor: "#9ecf97", // Custom AppBar background color
         },
       },
     },
     MuiToolbar: {
       styleOverrides: {
         root: {
-          backgroundColor: "#ffcfe6", // Custom Toolbar background color
+          backgroundColor: "#9ecf97", // Custom Toolbar background color
         },
       },
     },
@@ -40,10 +41,11 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline /> {/* Apply global styles */}
+      <CssBaseline />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/doctor" element={<DoctorPage />} />
+        <Route path="/patient/:patientId" element={<PatientPage />} />
       </Routes>
     </ThemeProvider>
   );

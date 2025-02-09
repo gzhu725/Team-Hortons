@@ -4,12 +4,13 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ErrorIcon from "@mui/icons-material/Error";
 
-const PatientBar = ({ firstName, lastName, isOk }) => {
+const PatientBar = ({ firstName, lastName, isOk, onClick }) => {
   return (
     <AppBar
       position="static"
       color="default"
       sx={{ borderRadius: 2, boxShadow: 1, marginBottom: "16px" }}
+      onClick={onClick}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         {/* Icon with reduced space from the name */}
