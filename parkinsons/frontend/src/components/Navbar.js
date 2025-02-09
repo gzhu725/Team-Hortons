@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,13 +12,17 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { useNavigate } from "react-router-dom";
+import { AuthProvider, useAuth } from "../context/AuthContext"; // Import authentication context
 
 import Logo from "../logo.png";
 
-const pages = ["Doctor"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
+  const { isLoggedIn, setIsLoggedIn, login, logout, isPatient, setIsPatient } =
+    useAuth();
+  const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const handleOpenNavMenu = (event) => {
@@ -35,7 +39,6 @@ function Navbar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
 
   return (
     <AppBar position="static">
@@ -102,22 +105,11 @@ function Navbar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: "block", md: "none" } }}
             >
-              {pages.map((page) => {
-                let path = "/doctor";
-                if (page === "Patient Data") {
-                  path = "/../pages/patient";
-                }
-
-                return (
-                  <MenuItem key={page}>
-                    <Link to={path} style={{ textDecoration: "none" }}>
-                      <Typography sx={{ textAlign: "center" }}>
-                        {page}
-                      </Typography>
-                    </Link>
-                  </MenuItem>
-                );
-              })}
+              <MenuItem key={"doctor"}>
+                <Link to={"/doctor"} style={{ textDecoration: "none" }}>
+                  <Typography sx={{ textAlign: "center" }}>Doctor</Typography>
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -136,30 +128,6 @@ function Navbar() {
           >
             TulipTrack
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => {
-              // Define the path based on the page value
-              let path = "/doctor"; // Default path
-              if (page === "Patient Data") {
-                path = "../pages/patient"; 
-              }
-
-              return (
-                <Link
-                  key={page}
-                  to={path} // Set the destination route for Link
-                  style={{ textDecoration: "none" }} // Remove underline from the link
-                >
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
-                    {page}
-                  </Button>
-                </Link>
-              );
-            })}
-          </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -180,10 +148,20 @@ function Navbar() {
                 horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+              onClose={handleCloseNavMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem
+                  key={setting}
+                  onClick={() => {
+                    handleCloseUserMenu(); // Close the menu
+                    if (setting === "Logout") {
+                      setIsLoggedIn(false); // Set isLoggedIn to false
+                      // Optionally, redirect to the login page or home page
+                      navigate("/login"); // Redirect to the login page
+                    }
+                  }}
+                >
                   <Typography sx={{ textAlign: "center" }}>
                     {setting}
                   </Typography>

@@ -1,44 +1,80 @@
-//patient data page
 import React, { useState, useEffect } from "react";
 import { Container, Typography, AppBar } from "@mui/material";
 import Navbar from "../components/Navbar";
 import PatientBar from "../components/PatientBar";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const DoctorPage = () => {
-
-  // TO DO HOW DO WE HANDLE SETTING DOCTOR? 
-
-  const [doctor, setDoctor] = useState(""); //one entry from the doctor json file
+  const { doctorId } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [doctor, setDoctor] = useState(null); // Start as null
   const [patients, setPatients] = useState([]);
   const navigate = useNavigate();
-  //CHANGE FOR LATER
+
+  // This is now wrapped in useEffect to avoid fetching during render.
   useEffect(() => {
-    // Fetch doctor data
-    fetch("/doctordata.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const doctorData = data[0]; // Assume first doctor entry
-        setDoctor(doctorData);
+    const fetchData = async () => {
+      try {
+        // Fetch doctor and patient data concurrently
+        const [doctorResponse, patientResponse] = await Promise.all([
+          fetch("/doctordata.json"),
+          fetch("/patientdata.json"),
+        ]);
 
-        // Fetch patient data once doctor is loaded
-        fetch("/patientdata.json")
-          .then((response) => response.json())
-          .then((patientData) => {
-            // Match doctor’s patients with full patient records
-            const matchedPatients = patientData.filter((patient) =>
-              doctorData.patients.includes(patient.user_id)
-            );
-            setPatients(matchedPatients);
-          })
-          .catch((error) =>
-            console.error("Error loading patient data:", error)
+        const doctorData = await doctorResponse.json();
+        const patientData = await patientResponse.json();
+
+        const foundDoctor = doctorData.find((p) => p.user_id === doctorId);
+        setDoctor(foundDoctor || null);
+
+        if (foundDoctor) {
+          // Only filter patients if the doctor is found
+          const matchedPatients = patientData.filter((patient) =>
+            foundDoctor.patients.includes(patient.user_id)
           );
-      })
-      .catch((error) => console.error("Error loading doctor data:", error));
-  }, []);
+          setPatients(matchedPatients);
+        }
+      } catch (error) {
+        console.error("Error loading data:", error);
+      } finally {
+        setLoading(false); // Set loading to false when data is loaded
+      }
+    };
 
-  console.log(patients);
+    fetchData();
+  }, [doctorId]); // Dependency array ensures this only runs when doctorId changes
+
+  // Handle loading state
+  if (loading) {
+    return (
+      <Container
+        maxWidth="md"
+        style={{ textAlign: "center", marginTop: "2rem" }}
+      >
+        <Typography variant="h6">Loading...</Typography>
+      </Container>
+    );
+  }
+
+  // Ensure doctor is loaded before rendering
+  if (!doctor) {
+    return (
+      <Container
+        maxWidth="md"
+        style={{ textAlign: "center", marginTop: "2rem" }}
+      >
+        <Typography variant="h6" color="error">
+          Doctor not found.
+        </Typography>
+      </Container>
+    );
+  }
+
+  // Handle patient click and navigate to the patient's page
+  const handlePatientClick = (patientId) => {
+    navigate(`/patient/${patientId}`);
+  };
 
   return (
     <>
@@ -50,11 +86,10 @@ const DoctorPage = () => {
         style={{ textAlign: "center", marginTop: "2rem" }}
       >
         <Typography variant="h4" gutterBottom>
-          Welcome back, {doctor.firstName}!
+          Welcome back, Dr. {doctor.firstName}!
         </Typography>
         {patients
           .sort((a, b) => {
-            // Compare last names case-insensitively
             const lastNameA = a.personal_details.last_name.toLowerCase();
             const lastNameB = b.personal_details.last_name.toLowerCase();
             return lastNameA < lastNameB ? -1 : lastNameA > lastNameB ? 1 : 0;
@@ -64,8 +99,8 @@ const DoctorPage = () => {
               key={patient.user_id}
               firstName={patient.personal_details.first_name}
               lastName={patient.personal_details.last_name}
-              isOk={true} // TO DO WHAT IS THIS?
-              onClick={() => navigate(`/patient/${patient.user_id}`)}
+              isOk={true} // Placeholder for `isOk` logic
+              onClick={() => handlePatientClick(patient.user_id)} // Handle navigation on click
             />
           ))}
       </Container>
