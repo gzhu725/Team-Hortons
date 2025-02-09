@@ -62,7 +62,7 @@ const Home = () => {
                 padding: "1rem",
               }}
             >
-              daily symptom how do u feel and typed notes
+              current data
             </Box>
 
             {/* Bottom Section (inside the right section) */}
@@ -73,7 +73,7 @@ const Home = () => {
                 padding: "1rem",
               }}
             >
-              more data
+              long term data
             </Box>
           </Box>
         </Box>
