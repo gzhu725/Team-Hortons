@@ -60,7 +60,9 @@ const Home = () => {
         const jsonObj = JSON.parse(jsonString);
         console.log("Received JSON object:", jsonObj);
         // Process jsonObj as needed...
-        setAboveThresh(jsonObj.above_thresh);
+        setAboveThresh(jsonObj.above_threshold);
+        console.log(jsonObj.above_threshold);
+        console.log(aboveThresh);
         addDataPoint({ x: Date.now(), y: jsonObj.smooth_jerk });
       } catch (error) {
         console.error("Error parsing JSON:", error);
@@ -232,7 +234,6 @@ const Home = () => {
                 textAlign: "center",
               }}
             >
-
               {
                 bluetoothDeviceName ?
                   <div>
