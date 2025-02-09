@@ -56,7 +56,7 @@ function handleNotification(event) {
       const jsonObj = JSON.parse(jsonString);
       console.log("Received JSON object:", jsonObj);
       // Process jsonObj as needed...
-      addDataPoint({x:Date.now(), y:jsonObj.smooth_accel});
+      addDataPoint({x:Date.now(), y:jsonObj.smooth_jerk});
     } catch (error) {
       console.error("Error parsing JSON:", error);
     }
