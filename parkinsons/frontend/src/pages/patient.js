@@ -22,11 +22,14 @@ const PatientPage = () => {
   const [patient, setPatient] = useState(null);
   const [loading, setLoading] = useState(true);
   const [date, setDate] = useState(new Date());
+  const [patientTremorData, setPatientTremorData] = useState([]);
 
+  // new change here
   const handleDateChange = (newDate) => {
     setDate(newDate);
   };
 
+  // new change here
   useEffect(() => {
     fetch("/patientdata.json")
       .then((response) => response.json())
