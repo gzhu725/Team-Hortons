@@ -1,13 +1,15 @@
-const Entry = require('./tremorModel');
+const TremorData = require('./tremorModel');
 
-// Fetch all entries for historical data
-const getAllEntries = async (req, res) => {
+const getTremorData = async (req, res) => {
   try {
-    const entries = await Entry.find();
-    res.status(200).json(entries);
+    const tremorData = await TremorData.find();  // Fetch all tremor data
+    if (!tremorData.length) {
+      return res.status(404).json({ message: "No tremor data found" });
+    }
+    res.status(200).json(tremorData);
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching data', error: error.message });
+    res.status(500).json({ message: 'Error fetching tremor data', error: error.message });
   }
 };
 
-module.exports = { getAllEntries };
+module.exports = { getTremorData };

@@ -1,44 +1,26 @@
-const app = require('express')();
-const http = require('http').Server(app);
-
-const fs = require('fs');
-require('dotenv').config();
-const { MongoClient } = require('mongodb');
-
-
+const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://jw8392:<db_password>@hacknyu.nrsb4.mongodb.net/?retryWrites=true&w=majority&appName=hacknyu")
+const dotenv = require('dotenv');
+// const userRoutes = require('./user/userRoutes'); // Correct user routes
+const tremorRoutes = require('./long_data/tremorRoute'); // Correct tremor routes
 
-const User = require('./user/userModel');
+dotenv.config();
+const app = express();
+app.use(express.json());
+app.use(cors()); // Enable CORS for frontend requests
 
-async function insert() {       // LMAO THIS DOESN'T WORK
-    const uri = process.env.MONGO_URI;
-    const client = new MongoClient(uri);
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}) 
+  .then(() => console.log('MongoDB connected to ', process.env.MONGO_URI))
+  .catch(err => console.error('MongoDB connection error:', err));
 
-    try {
-        // Connect to MongoDB Atlas
-        await client.connect();
-        console.log('Connected to MongoDB Atlas.');
+// API routes for users and tremor data
+// app.use('/api/users', userRoutes);
+app.use('/api/tremor', tremorRoutes);
 
-        // Read data from the JSON file
-        const data = JSON.parse(fs.readFileSync('updated_fake_user_profiles.json', 'utf-8'));
-
-        // Select database and collection
-        const database = client.db('medical-tracker');
-        const collection = database.collection('users');
-
-        // Insert data
-        const result = await collection.insertMany(data);
-        console.log(`${result.insertedCount} users inserted successfully!`);
-    } catch (error) {
-        console.error('Error inserting users:', error);
-    } finally {
-        await client.close();
-        console.log('Connection closed.');
-    }
-}
-insert();
-
-http.listen(3000, function(){
-    console.log('Server is running')
-});
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -1,12 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { getAllEntries } = require('./tremorController');
+const { getTremorData } = require('./tremorController');
 
-// Get all entries
-router.get('/', getAllEntries);
+// Define the GET route for tremor data
+router.get('/', getTremorData);
 
 module.exports = router;
-
-
-
-

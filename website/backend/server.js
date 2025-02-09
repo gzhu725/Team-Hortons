@@ -41,7 +41,7 @@ const connectDB = async () => {
 
 connectDB();
 
-const DEFAULT_PORT = process.env.PORT || 5000;
+const DEFAULT_PORT = process.env.PORT || 4000;
 detectPort.detectPort(DEFAULT_PORT)
   .then((availablePort) => {
     app.listen(availablePort, () => {
