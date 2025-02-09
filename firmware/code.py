@@ -218,14 +218,17 @@ while True:
         # Count how many of the last TIME_THRESHOLD readings were above threshold
         count_above = sum(recent_readings)  # True counts as 1, False as 0
         if count_above >= (TIME_THRESHOLD / 2):
+            above_threshold = True
             status(0)
             # Optionally, print a message:
             # print(f"Jerk was above {JERK_THRESHOLD} in at least 50% of the last {TIME_THRESHOLD} measurements!")
         else:
+            above_threshold = False
             status(1)
     else:
         # If we don't have a full window yet, you can decide what to do.
         # For example, you might call status(1) or simply pass.
+        above_threshold = False
         status(1)
 
 
