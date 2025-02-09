@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Typography, AppBar } from "@mui/material";
 import Navbar from "../components/Navbar";
 import PatientBar from "../components/PatientBar";
+import { useNavigate } from "react-router-dom";
 
 const DoctorPage = () => {
 
@@ -10,6 +11,7 @@ const DoctorPage = () => {
 
   const [doctor, setDoctor] = useState(""); //one entry from the doctor json file
   const [patients, setPatients] = useState([]);
+  const navigate = useNavigate();
   //CHANGE FOR LATER
   useEffect(() => {
     // Fetch doctor data
@@ -63,6 +65,7 @@ const DoctorPage = () => {
               firstName={patient.personal_details.first_name}
               lastName={patient.personal_details.last_name}
               isOk={true} // TO DO WHAT IS THIS?
+              onClick={() => navigate(`/patient/${patient.user_id}`)}
             />
           ))}
       </Container>

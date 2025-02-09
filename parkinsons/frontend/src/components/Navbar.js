@@ -15,13 +15,12 @@ import MenuItem from "@mui/material/MenuItem";
 
 import Logo from "../logo.png";
 
-const pages = ["Patient Data", "Doctor"];
+const pages = ["Doctor"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const navigate = useNavigate();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -104,10 +103,9 @@ function Navbar() {
               sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => {
-                // Define the path based on the page value
-                let path = "/doctor"; // Default path
+                let path = "/doctor";
                 if (page === "Patient Data") {
-                  path = "/../pages/patient"; // If page is "patient data", navigate to /patient
+                  path = "/../pages/patient";
                 }
 
                 return (
