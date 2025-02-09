@@ -8,9 +8,6 @@ const LoginPage = () => {
   const {
     isLoggedIn,
     setIsLoggedIn,
-    login,
-    logout,
-    isPatient,
     setIsPatient,
     user,
     setUser,

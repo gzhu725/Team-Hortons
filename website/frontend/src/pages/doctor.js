@@ -86,7 +86,7 @@ const DoctorPage = () => {
         style={{ textAlign: "center", marginTop: "2rem" }}
       >
         <Typography variant="h4" gutterBottom>
-          Welcome back, Dr. {doctor.firstName}!
+          Welcome back, {doctor.firstName}!
         </Typography>
         {patients
           .sort((a, b) => {

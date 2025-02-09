@@ -21,8 +21,11 @@ import Logo from "../logo.png";
 const settings = ["Account", "Logout"];
 
 function Navbar() {
-  const { isLoggedIn, setIsLoggedIn, login, logout, isPatient, setIsPatient } =
-    useAuth();
+  const {
+    setIsLoggedIn,
+    isPatient,
+    user,
+  } = useAuth();
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -41,6 +44,9 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+  console.log(isPatient)
+  console.log(user)
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -52,32 +58,41 @@ function Navbar() {
             alignItems: "center",
           }}
         >
-          <img
-            src={Logo}
-            width="90px"
+          <Link
+            to={isPatient ? "/" : `/doctor/${user?.user_id || ""}`}
             style={{
-              marginLeft: "-10px",
-              marginRight: "10px",
-              borderRadius: "50%",
-              objectFit: "cover",
-            }}
-          />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
               color: "inherit",
               textDecoration: "none",
             }}
-            href="/"
           >
-            TulipTrack
-          </Typography>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <img
+                src={Logo}
+                width="90px"
+                style={{
+                  marginLeft: "-10px",
+                  marginRight: "10px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                }}
+              />
+              <Typography
+                variant="h6"
+                noWrap
+                component="a"
+                sx={{
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+              >
+                TulipTrack
+              </Typography>
+            </Box>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -113,22 +128,7 @@ function Navbar() {
               </MenuItem>
             </Menu>
           </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            TulipTrack
-          </Typography>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -160,11 +160,9 @@ function Navbar() {
                     handleCloseUserMenu(); // Close the menu
                     if (setting === "Logout") {
                       setIsLoggedIn(false); // Set isLoggedIn to false
-                      // Optionally, redirect to the login page or home page
                       navigate("/login"); // Redirect to the login page
-                    }
-                    else if (setting === "Account") {
-                      navigate(`/account/`)
+                    } else if (setting === "Account") {
+                      navigate("/account");
                     }
                   }}
                 >

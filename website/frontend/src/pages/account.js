@@ -12,6 +12,7 @@ const AccountPage = () => {
   const [patients, setPatients] = useState([]);
   const navigate = useNavigate();
 
+  return <></>;
 };
 
 export default AccountPage;
