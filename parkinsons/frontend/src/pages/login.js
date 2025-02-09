@@ -2,11 +2,19 @@ import React, { createContext, useContext, useState } from "react";
 import { TextField, Button, Container, Typography, Box } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 import Home from "./index.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const LoginPage = () => {
-  const { isLoggedIn, setIsLoggedIn, login, logout, isPatient, setIsPatient, user, setUser } =
-    useAuth();
+  const {
+    isLoggedIn,
+    setIsLoggedIn,
+    login,
+    logout,
+    isPatient,
+    setIsPatient,
+    user,
+    setUser,
+  } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -22,7 +30,6 @@ const LoginPage = () => {
         const patientData = await patientDataResponse.json();
         //console.log(doctorData)
 
-
         // Check for a matching email and password in the doctor data
         const doctor = doctorData.find(
           (item) => item.email === email && item.password === password
@@ -34,8 +41,8 @@ const LoginPage = () => {
 
         // If a match is found in doctor data
         if (doctor) {
-          setUser(doctor)
-          console.log(doctor)
+          setUser(doctor);
+          console.log(doctor);
           setIsLoggedIn(true);
           setIsPatient(false); // Doctor is not a patient
           navigate(`/doctor/${doctor.user_id}`);
@@ -44,13 +51,12 @@ const LoginPage = () => {
 
         // If a match is found in patient data
         if (patient) {
-          setUser(patient)
+          setUser(patient);
           setIsLoggedIn(true);
           setIsPatient(true); // Patient is logged in
           navigate("/");
           return;
-        }
-        else {
+        } else {
           alert("Wrong email or password.");
         }
       } catch (error) {
@@ -90,6 +96,20 @@ const LoginPage = () => {
             <Button variant="contained" color="primary" onClick={handleLogin}>
               Login
             </Button>
+
+            <Typography variant="body2">
+              Don't have an account?{" "}
+              <Link
+                to="/signup"
+                style={{
+                  textDecoration: "none",
+                  color: "#1976d2",
+                  fontWeight: "bold",
+                }}
+              >
+                Sign up
+              </Link>
+            </Typography>
           </Box>
         )}
       </Box>

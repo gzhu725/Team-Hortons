@@ -14,10 +14,11 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "../context/AuthContext"; // Import authentication context
+import PersonIcon from "@mui/icons-material/Person";
 
 import Logo from "../logo.png";
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Account", "Logout"];
 
 function Navbar() {
   const { isLoggedIn, setIsLoggedIn, login, logout, isPatient, setIsPatient } =
@@ -131,7 +132,9 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar sx={{ backgroundColor: "grey", width: 40, height: 40 }}>
+                  <PersonIcon sx={{ color: "white" }} />
+                </Avatar>
               </IconButton>
             </Tooltip>
             <Menu
@@ -159,6 +162,9 @@ function Navbar() {
                       setIsLoggedIn(false); // Set isLoggedIn to false
                       // Optionally, redirect to the login page or home page
                       navigate("/login"); // Redirect to the login page
+                    }
+                    else if (setting === "Account") {
+                      navigate(`/account/`)
                     }
                   }}
                 >
