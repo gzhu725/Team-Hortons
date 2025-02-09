@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Web Bluetooth Serial Graph</title>
+  <title>Tulip Track</title>
   <style>
     body {
       font-family: sans-serif;
-      background: #f0f0f0;
+      background: #ffdced;
       text-align: center;
       margin: 0;
       padding: 20px;
@@ -22,14 +22,14 @@
     }
     canvas {
       background: #fff;
-      border: 1px solid #ccc;
+      border: 10px solid #e1ffd9;
       margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Bluetooth Serial Graph</h1>
-  <button id="connect">Connect Bluetooth Device</button>
+  <h1>TulipTrack</h1>
+  <button id="connect">Connect Your Tulip Tracker</button>
   <br>
   <canvas id="graph" width="600" height="300"></canvas>
 
@@ -137,21 +137,60 @@
       });
     }
 
-    // This handler is called whenever new data is received.
-    function handleNotification(event) {
-      const value = event.target.value;
-      // Assume the device sends text (UTF-8 encoded) representing a number.
-      const decoder = new TextDecoder('utf-8');
-      const dataStr = decoder.decode(value).trim();
-      // You might receive multiple lines or non-numeric text; split and parse:
-      dataStr.split('\n').forEach(line => {
-        const num = parseFloat(line);
-        if (!isNaN(num)) {
-          console.log('Received:', num);
-          addDataPoint(num);
+// Global buffer to store incoming data fragments
+let incomingBuffer = '';
+
+function handleNotification(event) {
+  // Convert the incoming DataView to a string
+  const chunk = new TextDecoder().decode(event.target.value);
+  //console.log(chunk);
+  // Append the new chunk to the global buffer
+  incomingBuffer += chunk;
+
+  // Look for complete JSON objects in the buffer.
+  // We assume each JSON object starts with '{' and ends with the matching '}'.
+  let startIdx = incomingBuffer.indexOf('{');
+  while (startIdx !== -1) {
+    let openBraces = 0;
+    let endIdx = -1;
+
+    // Iterate from the first '{' to find the matching '}'
+    for (let i = startIdx; i < incomingBuffer.length; i++) {
+      if (incomingBuffer[i] === '{') {
+        openBraces++;
+      } else if (incomingBuffer[i] === '}') {
+        openBraces--;
+        // When all opened braces are closed, we've found a complete JSON object
+        if (openBraces === 0) {
+          endIdx = i;
+          break;
         }
-      });
+      }
     }
+
+    // If no complete object is found, exit the loop and wait for more data.
+    if (endIdx === -1) {
+      break;
+    }
+
+    // Extract the complete JSON string
+    const jsonString = incomingBuffer.slice(startIdx, endIdx + 1);
+    try {
+      const jsonObj = JSON.parse(jsonString);
+      console.log("Received JSON object:", jsonObj);
+      // Process jsonObj as needed...
+      addDataPoint(jsonObj.smooth_accel);
+    } catch (error) {
+      console.error("Error parsing JSON:", error);
+    }
+
+    // Remove the processed JSON data from the buffer
+    incomingBuffer = incomingBuffer.slice(endIdx + 1);
+
+    // Check if there's another JSON object starting in the remaining buffer
+    startIdx = incomingBuffer.indexOf('{');
+  }
+}
   </script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>test site for apexcharts</title>
+</head> 
+<body>
+    <h2>
+        This is a test site for apexcharts
+    </h2>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> 
+    <div id="myChart"></div>
+    <script>
+        var options = {
+            chart: {
+                type: 'line'
+            },
+            series: [{
+                name: 'sales',
+                data: [30,40,35,50,49,60,70,91,125]
+            }],
+            xaxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']
+            }
+        }
+        var chart = new ApexCharts(document.querySelector("#myChart"), options);
+        chart.render();
+    </script>
+</body>
+</html>
