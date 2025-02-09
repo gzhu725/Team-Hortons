@@ -74,7 +74,7 @@ const PatientPage = () => {
       >
         <Box
           display="flex"
-          justifyContent="space-between"
+          justifyContent="center" // Center the content horizontally
           alignItems="flex-start"
           style={{ width: "100%" }}
         >
@@ -85,7 +85,11 @@ const PatientPage = () => {
               padding: "1rem",
             }}
           >
-            <Typography variant="h4" gutterBottom sx={{ marginLeft: "2rem" }}>
+            <Typography
+              variant="h4"
+              gutterBottom
+              sx={{ marginLeft: "0.5rem", whiteSpace: "nowrap" }} // Added whiteSpace property
+            >
               Patient Name: {patient.personal_details.first_name}{" "}
               {patient.personal_details.last_name}
             </Typography>
@@ -96,8 +100,7 @@ const PatientPage = () => {
               sx={{
                 width: "50%",
                 minWidth: "300px",
-                padding: "1rem",
-                marginLeft: "-150px",
+                padding: "1.5rem",
               }}
             >
               <Table size="small">
@@ -141,40 +144,6 @@ const PatientPage = () => {
                 </TableBody>
               </Table>
             </Paper>
-          </Box>
-          <Box
-            style={{
-              flex: 2, // Right section 2/3
-              maxWidth: "66%",
-              padding: "1rem",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              height: "80vh", // Same height as left section
-            }}
-          >
-            {/* Top Section (inside the right section) */}
-            <Box
-              style={{
-                flex: 1, // Takes up part of the vertical space
-                marginBottom: "1rem",
-                border: "1px solid #ccc",
-                padding: "1rem",
-              }}
-            >
-              current data
-            </Box>
-
-            {/* Bottom Section (inside the right section) */}
-            <Box
-              style={{
-                flex: 1, // Takes up part of the vertical space
-                border: "1px solid #ccc",
-                padding: "1rem",
-              }}
-            >
-              long term data
-            </Box>
           </Box>
         </Box>
       </Container>

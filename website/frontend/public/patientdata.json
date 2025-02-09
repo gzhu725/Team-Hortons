@@ -2,7 +2,8 @@
     {
         "user_id": "SW875WC",
         "email": "tanya@gmail.com",
-        "password": "tanya",
+        "password": "tanya123!!",
+        "is_ok": "true",
         "personal_details": {
             "first_name": "Tanya",
             "last_name": "Cook",
@@ -328,6 +329,7 @@
         "user_id": "OE900BV",
         "email": "hammonddillon@wise.org",
         "password": "X9z*kQlr%",
+        "is_ok": "true",
         "personal_details": {
             "first_name": "Alicia",
             "last_name": "Dunn",
